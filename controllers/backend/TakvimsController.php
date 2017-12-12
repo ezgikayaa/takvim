@@ -5,7 +5,7 @@ namespace kouosl\takvim\controllers\backend;
 use Yii;
 use kouosl\takvim\models\Takvim;
 use kouosl\takvim\models\TakvimSearch;
-use kouosl\takvim\backend\controllers\DefaultController
+use kouosl\takvim\controllers\backend\DefaultController
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
