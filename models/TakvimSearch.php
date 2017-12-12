@@ -1,15 +1,16 @@
 <?php
 
-namespace kouosl\sample\models;
+namespace app\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use app\models\Takvim;
 
 /**
- * SampleSearch represents the model behind the search form about `app\modules\sample\models\Sample`.
+ * TakvimSearch represents the model behind the search form about `app\models\Takvim`.
  */
-class SamplesSearch extends Samples
+class TakvimSearch extends Takvim
 {
     /**
      * @inheritdoc
@@ -17,8 +18,8 @@ class SamplesSearch extends Samples
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['title', 'description'], 'safe'],
+            [['takvim_date', 'gün', 'ay', 'yıl', 'saat'], 'integer'],
+            [['takvimtip'], 'safe'],
         ];
     }
 
@@ -40,7 +41,9 @@ class SamplesSearch extends Samples
      */
     public function search($params)
     {
-        $query = Samples::find();
+        $query = Takvim::find();
+
+        // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -54,12 +57,16 @@ class SamplesSearch extends Samples
             return $dataProvider;
         }
 
+        // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
+            'takvim_date' => $this->takvim_date,
+            'gün' => $this->gün,
+            'ay' => $this->ay,
+            'yıl' => $this->yıl,
+            'saat' => $this->saat,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description]);
+        $query->andFilterWhere(['like', 'takvimtip', $this->takvimtip]);
 
         return $dataProvider;
     }
