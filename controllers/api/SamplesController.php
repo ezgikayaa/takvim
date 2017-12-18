@@ -2,10 +2,10 @@
 
 namespace kouosl\takvim\controllers\api;
 
-use kouosl\takvim\models\Samples;
+use kouosl\takvim\models\Takvims;
 use Yii;
 
-class SamplesController extends DefaultController {
+class TakvimsController extends DefaultController {
 	
 	public $modelClass = 'kouosl\sample\models\Samples';
 	
