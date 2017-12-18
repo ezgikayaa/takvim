@@ -3,9 +3,9 @@
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m130524_201442_sample extends Migration
+class m130524_201442_takvim extends Migration
 {
-    public function up()
+    public function up()      //oluşturmak
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
@@ -13,7 +13,7 @@ class m130524_201442_sample extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%samples}}', [
+        $this->createTable('{{%takvims}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string(200)->notNull(),
 			'description' => $this->text()->notNull(),
@@ -42,7 +42,7 @@ class m130524_201442_sample extends Migration
 
     }
 
-    public function down()
+    public function down()  //silmek
     {
         $this->dropForeignKey('fk_sample_data_sample_id-1','sample_data');
         $this->dropIndex('idx_sample_data_sample_id-1','sample_data');

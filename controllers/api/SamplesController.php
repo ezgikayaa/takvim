@@ -1,8 +1,8 @@
 <?php
 
-namespace kouosl\sample\controllers\api;
+namespace kouosl\takvim\controllers\api;
 
-use kouosl\sample\models\Samples;
+use kouosl\takvim\models\Samples;
 use Yii;
 
 class SamplesController extends DefaultController {
