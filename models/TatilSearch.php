@@ -5,12 +5,12 @@ namespace kouosl\takvim\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use kouosl\takvim\models\Takvim;
+use kouosl\takvim\models\Tatil;
 
 /**
- * TakvimSearch represents the model behind the search form about `kouosl\takvim\models\Takvim`.
+ * TatilSearch represents the model behind the search form about `kouosl\takvim\models\Tatil`.
  */
-class TakvimSearch extends Takvim
+class TatilSearch extends Tatil
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class TakvimSearch extends Takvim
     public function rules()
     {
         return [
-            [['takvim_date', 'gun', 'ay', 'yil'], 'integer'],
-            [['saat', 'takvimtip'], 'safe'],
+            [['tatil_id'], 'integer'],
+            [['tatil_adi', 'tatil_tipi'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class TakvimSearch extends Takvim
      */
     public function search($params)
     {
-        $query = Takvim::find();
+        $query = Tatil::find();
 
         // add conditions that should always apply here
 
@@ -59,14 +59,11 @@ class TakvimSearch extends Takvim
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'takvim_date' => $this->takvim_date,
-            'gun' => $this->gun,
-            'ay' => $this->ay,
-            'yil' => $this->yil,
-            'saat' => $this->saat,
+            'tatil_id' => $this->tatil_id,
         ]);
 
-        $query->andFilterWhere(['like', 'takvimtip', $this->takvimtip]);
+        $query->andFilterWhere(['like', 'tatil_adi', $this->tatil_adi])
+            ->andFilterWhere(['like', 'tatil_tipi', $this->tatil_tipi]);
 
         return $dataProvider;
     }

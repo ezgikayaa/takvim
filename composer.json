@@ -1,6 +1,6 @@
 {
     "name": "kouosl/takvim",
-    "description": "Yii2 KouOsl sample Module Integration",
+    "description": "Yii2 KouOsl takvim Module Integration",
     "type": "yii2-extension",
     "keywords": ["yii2", "yii 2", "takvims", "takvim", "module", "modules"],
     "license": "BSD-3-Clause",

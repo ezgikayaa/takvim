@@ -1,6 +1,6 @@
 <?php
 
-namespace kouosl\takvim\controllers\backend;
+namespace kouosl\takvim\controllers\frontend;
 
 use Yii;
 use kouosl\takvim\models\Takvim;

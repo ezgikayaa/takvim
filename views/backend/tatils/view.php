@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model kouosl\takvim\models\Takvim */
+/* @var $model kouosl\takvim\models\Tatil */
 
-$this->title = $model->takvim_date;
-$this->params['breadcrumbs'][] = ['label' => 'Takvims', 'url' => ['index']];
+$this->title = $model->tatil_id;
+$this->params['breadcrumbs'][] = ['label' => 'Tatils', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="takvim-view">
+<div class="tatil-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->takvim_date], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->takvim_date], [
+        <?= Html::a('Update', ['update', 'id' => $model->tatil_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->tatil_id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,12 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'takvim_date',
-            'gun',
-            'ay',
-            'yil',
-            'saat',
-            'takvimtip',
+            'tatil_id',
+            'tatil_adi',
+            'tatil_tipi',
         ],
     ]) ?>
 

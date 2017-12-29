@@ -8,11 +8,13 @@ use Yii;
  * This is the model class for table "takvim".
  *
  * @property integer $takvim_date
- * @property integer $g羹n
+ * @property integer $gun
  * @property integer $ay
- * @property integer $y覺l
- * @property integer $saat
+ * @property integer $yil
+ * @property string $saat
  * @property string $takvimtip
+ *
+ * @property Tatil $tatil
  */
 class Takvim extends \yii\db\ActiveRecord
 {
@@ -30,8 +32,9 @@ class Takvim extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['takvim_date', 'g羹n', 'ay', 'y覺l', 'saat', 'takvimtip'], 'required'],
-            [['takvim_date', 'g羹n', 'ay', 'y覺l', 'saat'], 'integer'],
+            [['takvim_date', 'gun', 'ay', 'yil', 'saat', 'takvimtip'], 'required'],
+            [['takvim_date', 'gun', 'ay', 'yil'], 'integer'],
+            [['saat'], 'safe'],
             [['takvimtip'], 'string', 'max' => 45],
         ];
     }
@@ -43,11 +46,19 @@ class Takvim extends \yii\db\ActiveRecord
     {
         return [
             'takvim_date' => 'Takvim Date',
-            'g羹n' => 'G蒱n',
+            'gun' => 'Gun',
             'ay' => 'Ay',
-            'y覺l' => 'Y銆l',
+            'yil' => 'Yil',
             'saat' => 'Saat',
             'takvimtip' => 'Takvimtip',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTatil()
+    {
+        return $this->hasOne(Tatil::className(), ['tatil_id' => 'takvim_date']);
     }
 }
